@@ -15,28 +15,24 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
 
+# Fingerprinted image assets can be cached hard.
 [[headers]]
   for = "/img/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
 # ------------------------------------------------------------------
-# School trip pages are now served from this repo (trips/<slug>/),
-# so the old cross-site redirects have been removed.
+# School trip pages are served straight from this repo (trips/<slug>/),
+# so the old cross-site redirects are gone.
 # ------------------------------------------------------------------
 
-# Legal page aliases used by the folded-in trip pages.
+# Legal alias used by the folded-in trip pages.
 [[redirects]]
   from = "/privacy-policy"
-  to = "/privacy"
+  to = "/privacy.html"
   status = 301
 
-[[redirects]]
-  from = "/terms-and-conditions"
-  to = "/terms"
-  status = 301
-
-# Registration portal still lives in its own repo/deploy.
+# Registration portal still lives in its own repo and deploy.
 [[redirects]]
   from = "/register"
   to = "https://impact-registration.netlify.app/register/"
@@ -45,61 +41,6 @@
 [[redirects]]
   from = "/register/*"
   to = "https://impact-registration.netlify.app/register/:splat"
-  status = 301
-
-[[redirects]]
-  from = "/home"
-  to = "/"
-  status = 301
-# Netlify configuration for ImpACT Tours and Travel
-# Static marketing site - no build step required.
-
-[build]
-  publish = "."
-  command = ""
-
-[build.processing]
-  skip_processing = false
-
-[[headers]]
-  for = "/*"
-  [headers.values]
-    X-Frame-Options = "SAMEORIGIN"
-    X-Content-Type-Options = "nosniff"
-    Referrer-Policy = "strict-origin-when-cross-origin"
-
-# ------------------------------------------------------------------
-# Registration portal and school trip pages.
-#
-# NOTE: these are 301 redirects, not 200 proxy rewrites. Netlify
-# returns a 500 when proxying to another *.netlify.app site, so the
-# clean URLs below forward to the existing deploys instead.
-# To serve these under the main domain for real, the source files
-# need to be committed into this repo.
-# ------------------------------------------------------------------
-[[redirects]]
-  from = "/register"
-  to = "https://impact-registration.netlify.app/register/"
-  status = 301
-
-[[redirects]]
-  from = "/register/*"
-  to = "https://impact-registration.netlify.app/register/:splat"
-  status = 301
-
-[[redirects]]
-  from = "/trips/john-horn-nyc"
-  to = "https://impact-john-horn-nyc.netlify.app/"
-  status = 301
-
-[[redirects]]
-  from = "/trips/sherwood-nyc"
-  to = "https://impact-sherwood-nyc.netlify.app/"
-  status = 301
-
-[[redirects]]
-  from = "/trips/quince-orchard-nyc"
-  to = "https://impact-quince-orchard-nyc.netlify.app/"
   status = 301
 
 [[redirects]]
