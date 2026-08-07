@@ -1,126 +1,225 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Impact Tours and Travel</title>
-  <meta name="description" content="Impact Tours and Travel - curated safaris, beach escapes and cultural journeys with a positive impact." />
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ImpACT Tours and Travel - Educational Travel for Student Groups</title>
+<meta name="description" content="Custom-crafted educational adventures for student groups. For educators, by educators. Broadway, Orlando and beyond.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container nav">
-      <a class="brand" href="#home">Impact<span>Tours</span></a>
-      <nav>
-        <a href="#tours">Tours</a>
-        <a href="#about">About</a>
-        <a href="#why">Why Us</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
 
-  <section id="home" class="hero">
-    <div class="container hero-inner">
-      <h1>Travel that leaves a mark &mdash; on you, not the planet</h1>
-      <p>Impact Tours and Travel designs unforgettable safaris, beach escapes and cultural journeys that support the communities we visit.</p>
-      <a class="btn" href="#tours">Explore our tours</a>
+<header class="site-header">
+  <div class="container nav">
+    <a class="nav__logo" href="/"><img src="https://framerusercontent.com/images/PzaY1PXKhPS7xX7Z7ii9vAXHRwU.svg" alt="ImpACT Tours and Travel"></a>
+    <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="#itineraries">Trips</a></li>
+      <li><a href="#educators">Services</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+    </ul>
+    <a class="btn btn--outline" href="contact.html">Talk to a Travel Expert</a>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">For educators. By educators.</p>
+      <div class="hero__rotator">
+        <span class="hero__word">YOUR ADVENTURE AWAITS</span>
+        <span class="hero__word">OUR TAILORED TRIPS</span>
+        <span class="hero__word">THE STAGE IS SET</span>
+      </div>
+      <p class="hero__lead">Take your students from the classroom to center stage with custom-crafted educational adventures to the heart of Broadway.</p>
+      <div class="hero__actions">
+        <a class="btn btn--orange" href="contact.html">Talk to a Travel Expert</a>
+        <a class="btn btn--outline" href="#itineraries">View sample itineraries</a>
+      </div>
     </div>
   </section>
 
-  <main>
-    <section id="tours" class="section">
-      <div class="container">
-        <h2>Featured Journeys</h2>
-        <div class="grid">
-          <article class="card">
-            <h3>Classic Safari</h3>
-            <p>Big-game game drives across iconic reserves, guided by expert local rangers.</p>
-            <span class="tag">5 days</span>
-          </article>
-          <article class="card">
-            <h3>Coastal Escape</h3>
-            <p>White sand, warm water and slow mornings on the Indian Ocean coastline.</p>
-            <span class="tag">4 days</span>
-          </article>
-          <article class="card">
-            <h3>Culture &amp; Community</h3>
-            <p>Meet artisans, cooks and storytellers on a journey built around real connection.</p>
-            <span class="tag">3 days</span>
-          </article>
-          <article class="card">
-            <h3>Mountain Trek</h3>
-            <p>Guided highland hikes with sunrise summits and unbeatable views.</p>
-            <span class="tag">6 days</span>
-          </article>
-          <article class="card">
-            <h3>Family Adventure</h3>
-            <p>Paced for little travellers, packed with wildlife, beaches and easy wins.</p>
-            <span class="tag">7 days</span>
-          </article>
-          <article class="card">
-            <h3>Tailor-Made</h3>
-            <p>Tell us your dates, budget and dreams &mdash; we will build the trip around them.</p>
-            <span class="tag">Flexible</span>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="about" class="section alt">
-      <div class="container narrow">
-        <h2>About Us</h2>
-        <p>We are a small team of guides, planners and travel obsessives who believe tourism should give more than it takes. Every itinerary we build is run with local partners, fair wages and a lighter footprint.</p>
-      </div>
-    </section>
-
-    <section id="why" class="section">
-      <div class="container">
-        <h2>Why Travel With Us</h2>
-        <div class="grid three">
-          <div class="feature">
-            <h3>Local Experts</h3>
-            <p>Guides who were born on the routes they lead.</p>
-          </div>
-          <div class="feature">
-            <h3>Fair &amp; Transparent</h3>
-            <p>Clear pricing, no hidden extras, honest advice.</p>
-          </div>
-          <div class="feature">
-            <h3>Real Impact</h3>
-            <p>A share of every booking goes back into community projects.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="section alt">
-      <div class="container narrow">
-        <h2>Plan Your Trip</h2>
-        <p>Tell us where you want to go and we will get back to you within one business day.</p>
-        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-          <input type="hidden" name="form-name" value="contact" />
-          <p class="hidden"><label>Do not fill this out: <input name="bot-field" /></label></p>
-          <label for="name">Name</label>
-          <input id="name" type="text" name="name" required />
-          <label for="email">Email</label>
-          <input id="email" type="email" name="email" required />
-          <label for="message">What kind of trip are you dreaming of?</label>
-          <textarea id="message" name="message" rows="5" required></textarea>
-          <button class="btn" type="submit">Send enquiry</button>
-        </form>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p>&copy; <span id="year"></span> Impact Tours and Travel. All rights reserved.</p>
+  <section class="marquee" aria-label="Trip highlights">
+    <div class="marquee__track">
+      <img src="https://framerusercontent.com/images/ecLHmS8J2Lvb6DKV9onOzpojvG0.png" alt="ImpACT student trip" loading="lazy">
+      <img src="https://framerusercontent.com/images/BvjIH2nSDPgldGlfyegk0YDE.png" alt="ImpACT student trip" loading="lazy">
+      <img src="https://framerusercontent.com/images/lyrlyWH3C16XEv4SaeQvbzkulmk.png" alt="ImpACT student trip" loading="lazy">
+      <img src="https://framerusercontent.com/images/MjVamfVmSKvQ8QXHjtFeJqhE9Mk.png" alt="ImpACT student trip" loading="lazy">
+      <img src="https://framerusercontent.com/images/RgcseYDgixTcUlZNSnhJP8.png" alt="ImpACT student trip" loading="lazy">
+      <img src="https://framerusercontent.com/images/0ExQ2UNnGRgKZOeyw0JOs9t10.png" alt="ImpACT student trip" loading="lazy">
+      <img src="https://framerusercontent.com/images/ecLHmS8J2Lvb6DKV9onOzpojvG0.png" alt="ImpACT student trip" loading="lazy">
+      <img src="https://framerusercontent.com/images/BvjIH2nSDPgldGlfyegk0YDE.png" alt="ImpACT student trip" loading="lazy">
+      <img src="https://framerusercontent.com/images/lyrlyWH3C16XEv4SaeQvbzkulmk.png" alt="ImpACT student trip" loading="lazy">
+      <img src="https://framerusercontent.com/images/MjVamfVmSKvQ8QXHjtFeJqhE9Mk.png" alt="ImpACT student trip" loading="lazy">
+      <img src="https://framerusercontent.com/images/RgcseYDgixTcUlZNSnhJP8.png" alt="ImpACT student trip" loading="lazy">
+      <img src="https://framerusercontent.com/images/0ExQ2UNnGRgKZOeyw0JOs9t10.png" alt="ImpACT student trip" loading="lazy">
     </div>
-  </footer>
+  </section>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <section class="section">
+    <div class="container stats">
+      <div>
+        <div class="stat__num">2+</div>
+        <div class="stat__label">Years<br>experience.</div>
+        <div class="stat__body">
+          <p>Whether you are a show choir, drama department, or a history class with a flair for the dramatic, we tailor every detail to your cast, your schedule, your dream trip.</p>
+        </div>
+      </div>
+      <div class="media-quote">
+        <img src="https://framerusercontent.com/images/XqHyLasOAMFLVllo4g0GtaMnVZ0.png" alt="ImpACT student group on tour" loading="lazy">
+        <blockquote class="quote-card">
+          <p>"I've been taking trips to NYC for over a decade and impACT Tours is the most organized and adaptable company I've worked with!"</p>
+          <p class="name">Mr. Daniel</p>
+          <p class="role">Theatre Teacher</p>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="educators">
+    <div class="container">
+      <h2 class="center">FOR EDUCATORS. BY EDUCATORS.</h2>
+      <div class="cards">
+        <article class="card"><h3>Fair pricing, no surprises</h3><p>We offer transparent, educator-friendly pricing with no hidden fees - just unforgettable, all-inclusive experiences designed to fit your budget and maximize student impact.</p></article>
+        <article class="card"><h3>Registration portal</h3><p>Register your group or individual travelers quickly and securely through our user-friendly portal, where we manage forms, payments, and trip details all in one place.</p></article>
+        <article class="card"><h3>Dedicated support</h3><p>Enjoy personalized, dedicated support from travel experts who know schools, here to guide you every step of the way, from planning, to recruiting, to take off!</p></article>
+        <article class="card"><h3>Completely customizable</h3><p>Every trip is completely customizable, built around your group's goals, schedule, curriculum, and dreams for the perfect travel experience.</p></article>
+        <article class="card"><h3>Teacher perks for you!</h3><p>Teachers can travel free with their students and enjoy special incentives throughout the year, including exclusive offers, seasonal perks, and all-in support.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container stats">
+      <div>
+        <h2>Your Trip.<br>Your Spotlight.</h2>
+        <p>We understand the challenges of traveling with groups because we've been there. From logistical support, to advertising, to collecting payments, it can feel overwhelming. Don't do it alone! We are here for you every step of the way!</p>
+        <ul class="features">
+          <li>Advertising material created for your group</li>
+          <li>Meetings with your group before you travel</li>
+          <li>Hassle-free registration system that collects payments</li>
+        </ul>
+      </div>
+      <div>
+        <img src="https://framerusercontent.com/images/vcIRztd4BbMmZAcPNmeTB6p1lgQ.png" alt="Planning your trip with ImpACT" loading="lazy" style="border-radius:28px">
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="itineraries">
+    <div class="container">
+      <p class="eyebrow center">Adventure awaits just for you.</p>
+      <h2 class="center">SAMPLE ITINERARIES</h2>
+      <div class="trips">
+        <article class="trip">
+          <img src="https://framerusercontent.com/images/9SkkDe8hWlF054kPYkWTyYgxy18.jpeg" alt="New York City skyline" loading="lazy">
+          <div class="trip__body">
+            <p class="trip__loc">New York City | Broadway</p>
+            <h3>Broadway Your Way</h3>
+            <a class="btn btn--navy" href="itinerary-nyc.html">View Details</a>
+          </div>
+        </article>
+        <article class="trip">
+          <img src="https://framerusercontent.com/images/SdXXnFtnTPshO1CARqO8JcEux8.jpg" alt="Orlando theme parks" loading="lazy">
+          <div class="trip__body">
+            <p class="trip__loc">Orlando | Disney &amp; Universal</p>
+            <h3>Let Us Treat You To Magic!</h3>
+            <a class="btn btn--navy" href="itinerary-orlando.html">View Details</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container media-quote">
+      <img src="https://framerusercontent.com/images/TmOpENMe58rIiZlLdv2tehh0R4.jpg" alt="Students on an ImpACT trip" loading="lazy">
+      <blockquote class="quote-card">
+        <p>"As a new teacher, I was overwhelmed when trying to plan a trip to New York. ImpACT took all my fears away. It's a perfect way to take a group to the city. ImpACT made the process easy and enjoyable through every moment of the trip. I cannot wait to travel again with impACT."</p>
+        <p class="name">Emily Fletcher</p>
+        <p class="role">HHS</p>
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="section section--alt" id="blog">
+    <div class="container">
+      <p class="eyebrow">Our travel blog</p>
+      <h2>Discover why traveling heals the soul.</h2>
+      <div class="posts">
+        <article class="post">
+          <a href="blog/traveling-with-your-students.html"><img src="https://framerusercontent.com/images/NLBfXqiKhUOXKU1LlsgALcbzIo.jpg" alt="" loading="lazy"></a>
+          <p class="post__meta">May 9, 2024 &middot; 3 min read</p>
+          <h3><a href="blog/traveling-with-your-students.html">Why Traveling With Your Students Is Important</a></h3>
+        </article>
+        <article class="post">
+          <a href="blog/classroom-to-cobblestone.html"><img src="https://framerusercontent.com/images/KFcEaSkCm0wEzmeRFqX08hAAuM.jpg" alt="" loading="lazy"></a>
+          <p class="post__meta">Jul 4, 2024 &middot; 2 min read</p>
+          <h3><a href="blog/classroom-to-cobblestone.html">From Classroom to Cobblestone: How Educational Travel Deepens Learning</a></h3>
+        </article>
+        <article class="post">
+          <a href="blog/travel-affordability.html"><img src="https://framerusercontent.com/images/tO9xwO2eVTZTXbn6n4qvZcOw4.jpg" alt="" loading="lazy"></a>
+          <p class="post__meta">Dec 12, 2024 &middot; 2 min read</p>
+          <h3><a href="blog/travel-affordability.html">5 Ways to Make Educational Travel Affordable for All Families</a></h3>
+        </article>
+      </div>
+      <p style="margin-top:2rem"><a class="btn btn--outline" href="blog.html">Explore More</a></p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta">
+        <p class="eyebrow">We can't wait to plan your next adventure!</p>
+        <h2>GET IN TOUCH</h2>
+        <a class="btn btn--orange" href="contact.html">Get Started</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer__grid">
+      <img src="https://framerusercontent.com/images/PzaY1PXKhPS7xX7Z7ii9vAXHRwU.svg" alt="ImpACT Tours and Travel" style="height:44px;width:auto;filter:brightness(0) invert(1)">
+      <ul class="footer__links">
+        <li><a href="/">Home</a></li>
+        <li><a href="#educators">Services</a></li>
+        <li><a href="#itineraries">Itineraries</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+    </div>
+    <p class="footer__legal">Copyright &copy; 2025 by impACT Tours and Travel</p>
+  </div>
+</footer>
+
+<aside class="promo" id="promo">
+  <div class="promo__head">
+    <strong>#REDCARPETSTYLE</strong>
+    <button class="promo__close" id="promoClose" aria-label="Dismiss">&#9660;</button>
+  </div>
+  <a class="btn btn--navy" href="contact.html">Get a Group Quote</a>
+  <div class="promo__thumbs">
+    <img src="https://framerusercontent.com/images/RgcseYDgixTcUlZNSnhJP8.png" alt="" loading="lazy">
+    <img src="https://framerusercontent.com/images/0ExQ2UNnGRgKZOeyw0JOs9t10.png" alt="" loading="lazy">
+  </div>
+</aside>
+
+<script>
+  var t=document.getElementById('navToggle'),l=document.getElementById('navLinks');
+  t.addEventListener('click',function(){var o=l.classList.toggle('open');t.setAttribute('aria-expanded',o);});
+  var p=document.getElementById('promo'),c=document.getElementById('promoClose');
+  c.addEventListener('click',function(){p.hidden=true;});
+</script>
+
 </body>
 </html>
