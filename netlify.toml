@@ -15,6 +15,59 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
 
+[[headers]]
+  for = "/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# ------------------------------------------------------------------
+# School trip pages are now served from this repo (trips/<slug>/),
+# so the old cross-site redirects have been removed.
+# ------------------------------------------------------------------
+
+# Legal page aliases used by the folded-in trip pages.
+[[redirects]]
+  from = "/privacy-policy"
+  to = "/privacy"
+  status = 301
+
+[[redirects]]
+  from = "/terms-and-conditions"
+  to = "/terms"
+  status = 301
+
+# Registration portal still lives in its own repo/deploy.
+[[redirects]]
+  from = "/register"
+  to = "https://impact-registration.netlify.app/register/"
+  status = 301
+
+[[redirects]]
+  from = "/register/*"
+  to = "https://impact-registration.netlify.app/register/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/home"
+  to = "/"
+  status = 301
+# Netlify configuration for ImpACT Tours and Travel
+# Static marketing site - no build step required.
+
+[build]
+  publish = "."
+  command = ""
+
+[build.processing]
+  skip_processing = false
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
 # ------------------------------------------------------------------
 # Registration portal and school trip pages.
 #
