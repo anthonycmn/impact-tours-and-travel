@@ -1,5 +1,5 @@
-# Netlify configuration for Impact Tours and Travel
-# Static site - no build step required.
+# Netlify configuration for ImpACT Tours and Travel
+# Static marketing site - no build step required.
 
 [build]
   publish = "."
@@ -15,6 +15,64 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
 
+# ------------------------------------------------------------------
+# Registration portal
+# Proxied in from the registration project so it lives at /register
+# on the main domain instead of a separate netlify.app subdomain.
+# ------------------------------------------------------------------
+[[redirects]]
+  from = "/register"
+  to = "https://impact-registration.netlify.app/register/"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/register/*"
+  to = "https://impact-registration.netlify.app/register/:splat"
+  status = 200
+  force = true
+
+# ------------------------------------------------------------------
+# School trip pages
+# Each school landing page is proxied in under /trips/<school>/.
+# Always link with a trailing slash so relative assets resolve.
+# ------------------------------------------------------------------
+[[redirects]]
+  from = "/trips/john-horn-nyc"
+  to = "/trips/john-horn-nyc/"
+  status = 301
+
+[[redirects]]
+  from = "/trips/john-horn-nyc/*"
+  to = "https://impact-john-horn-nyc.netlify.app/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/trips/sherwood-nyc"
+  to = "/trips/sherwood-nyc/"
+  status = 301
+
+[[redirects]]
+  from = "/trips/sherwood-nyc/*"
+  to = "https://impact-sherwood-nyc.netlify.app/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/trips/quince-orchard-nyc"
+  to = "/trips/quince-orchard-nyc/"
+  status = 301
+
+[[redirects]]
+  from = "/trips/quince-orchard-nyc/*"
+  to = "https://impact-quince-orchard-nyc.netlify.app/:splat"
+  status = 200
+  force = true
+
+# ------------------------------------------------------------------
+# Legacy paths
+# ------------------------------------------------------------------
 [[redirects]]
   from = "/home"
   to = "/"
