@@ -16,63 +16,39 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
 
 # ------------------------------------------------------------------
-# Registration portal
-# Proxied in from the registration project so it lives at /register
-# on the main domain instead of a separate netlify.app subdomain.
+# Registration portal and school trip pages.
+#
+# NOTE: these are 301 redirects, not 200 proxy rewrites. Netlify
+# returns a 500 when proxying to another *.netlify.app site, so the
+# clean URLs below forward to the existing deploys instead.
+# To serve these under the main domain for real, the source files
+# need to be committed into this repo.
 # ------------------------------------------------------------------
 [[redirects]]
   from = "/register"
   to = "https://impact-registration.netlify.app/register/"
-  status = 200
-  force = true
+  status = 301
 
 [[redirects]]
   from = "/register/*"
   to = "https://impact-registration.netlify.app/register/:splat"
-  status = 200
-  force = true
-
-# ------------------------------------------------------------------
-# School trip pages
-# Each school landing page is proxied in under /trips/<school>/.
-# Always link with a trailing slash so relative assets resolve.
-# ------------------------------------------------------------------
-[[redirects]]
-  from = "/trips/john-horn-nyc"
-  to = "/trips/john-horn-nyc/"
   status = 301
 
 [[redirects]]
-  from = "/trips/john-horn-nyc/*"
-  to = "https://impact-john-horn-nyc.netlify.app/:splat"
-  status = 200
-  force = true
+  from = "/trips/john-horn-nyc"
+  to = "https://impact-john-horn-nyc.netlify.app/"
+  status = 301
 
 [[redirects]]
   from = "/trips/sherwood-nyc"
-  to = "/trips/sherwood-nyc/"
+  to = "https://impact-sherwood-nyc.netlify.app/"
   status = 301
-
-[[redirects]]
-  from = "/trips/sherwood-nyc/*"
-  to = "https://impact-sherwood-nyc.netlify.app/:splat"
-  status = 200
-  force = true
 
 [[redirects]]
   from = "/trips/quince-orchard-nyc"
-  to = "/trips/quince-orchard-nyc/"
+  to = "https://impact-quince-orchard-nyc.netlify.app/"
   status = 301
 
-[[redirects]]
-  from = "/trips/quince-orchard-nyc/*"
-  to = "https://impact-quince-orchard-nyc.netlify.app/:splat"
-  status = 200
-  force = true
-
-# ------------------------------------------------------------------
-# Legacy paths
-# ------------------------------------------------------------------
 [[redirects]]
   from = "/home"
   to = "/"
