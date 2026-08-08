@@ -68,10 +68,16 @@
 # a stray /register/index.html added here later would silently shadow
 # the whole application.
 
+# Netlify normalises the trailing slash before matching, so a rule of
+# from = "/register" also matches "/register/". Sending that to
+# "/register/" therefore redirects the path to itself — a 301 loop, which
+# is exactly what the first version of this file did. Proxy the bare path
+# straight to the app instead; there is nothing to redirect to.
 [[redirects]]
   from = "/register"
-  to = "/register/"
-  status = 301
+  to = "https://impact-tours-registration.netlify.app/register/"
+  status = 200
+  force = true
 
 [[redirects]]
   from = "/register/*"
