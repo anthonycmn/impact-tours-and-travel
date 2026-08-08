@@ -21,6 +21,25 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
+# Registration holds passport numbers and minors' medical records, so it
+# gets a stricter posture than the marketing pages around it: never
+# framed at all rather than same-origin, and never cached, because a
+# shared family computer should not have a roster in its back button.
+# payment=(self) is what lets Stripe's card field work.
+[[headers]]
+  for = "/register/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=(), payment=(self)"
+    Cache-Control = "no-store"
+
+[[headers]]
+  for = "/api/*"
+  [headers.values]
+    Cache-Control = "no-store"
+
 # ------------------------------------------------------------------
 # School trip pages are served straight from this repo (trips/<slug>/),
 # so the old cross-site redirects are gone.
@@ -32,16 +51,49 @@
   to = "/privacy.html"
   status = 301
 
-# Registration portal still lives in its own repo and deploy.
+# ------------------------------------------------------------------
+# Registration
+# ------------------------------------------------------------------
+# The registration system is its own repo and its own deploy — it has
+# serverless functions, database migrations and a test suite, none of
+# which belong in a static marketing site. But families should never
+# see that. It is served here, under this domain, at /register.
+#
+# status = 200 is a proxy, not a redirect. The address bar keeps
+# saying www.impacttoursandtravel.com the whole way through paying.
+# The previous rules were 301s pointing at impact-registration.netlify.app
+# — a dead site on the old free team — so /register had been broken.
+#
+# force = true because Netlify prefers a real file over a redirect, and
+# a stray /register/index.html added here later would silently shadow
+# the whole application.
+
 [[redirects]]
   from = "/register"
-  to = "https://impact-registration.netlify.app/register/"
+  to = "/register/"
   status = 301
 
 [[redirects]]
   from = "/register/*"
-  to = "https://impact-registration.netlify.app/register/:splat"
-  status = 301
+  to = "https://impact-tours-registration.netlify.app/register/:splat"
+  status = 200
+  force = true
+
+# The registration app calls fetch('/api/…') for anything involving
+# money — it deliberately never trusts the browser with an amount. Those
+# calls resolve against whatever origin the page was served from, which
+# is now this one, so the path has to exist here too.
+#
+# Note what is NOT routed through here: Stripe's webhook. It posts
+# directly to impact-tours-registration.netlify.app/api/stripe-webhook,
+# and it must keep doing so — the signature is computed over the raw
+# request body, and a proxy hop is a chance to re-encode it and break
+# verification for every payment.
+[[redirects]]
+  from = "/api/*"
+  to = "https://impact-tours-registration.netlify.app/api/:splat"
+  status = 200
+  force = true
 
 [[redirects]]
   from = "/home"
