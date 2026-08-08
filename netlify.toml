@@ -51,6 +51,25 @@
   to = "/privacy.html"
   status = 301
 
+# The trip pages said "you agree to our Terms and Conditions" and linked to
+# /terms, which returned 404 — you cannot bind anyone to terms they cannot
+# read. The page now exists; these are the aliases that were already being
+# written into copy.
+[[redirects]]
+  from = "/terms-and-conditions"
+  to = "/terms.html"
+  status = 301
+
+[[redirects]]
+  from = "/trip-policies"
+  to = "/terms.html"
+  status = 301
+
+[[redirects]]
+  from = "/policies"
+  to = "/terms.html"
+  status = 301
+
 # ------------------------------------------------------------------
 # Registration
 # ------------------------------------------------------------------
