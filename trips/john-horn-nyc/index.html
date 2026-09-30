@@ -643,26 +643,44 @@
   </div>
 </section>
 
-<!-- REGISTER / EMBED -->
+<!-- REGISTER -->
+<!-- Registration is our own portal at /register/, not an embed.
+     It was a Regpack iframe until 30 September 2026. On this page the iframe
+     still carried the placeholder g_id=JOHN_HORN_GROUP_ID, never replaced, so
+     Regpack answered every visitor with
+       {"msg":["You are not authorized to do this action. Please do not try to
+       hack the system, it will not work","error"]}
+     inside a white box. Families read that as the site being broken, which it
+     was. The Quince page pointed at a real Regpack project, which is no longer
+     where anybody should be registering.
+     A link and not an iframe, deliberately: the sign-in email opens at the top
+     level, Stripe's payment sheet and Apple Pay want a real origin, and a family
+     who finishes a registration inside a frame has nowhere sensible to go next.
+     ?code=NBPEHM fills in the group code on the first screen. -->
 <section class="register" id="register">
   <div class="wrap">
     <div class="reveal">
       <p class="eyebrow">The Stage Is Set</p>
       <h2 class="section-title">Register Your Student</h2>
-      <p class="section-intro" style="margin-left:auto;margin-right:auto">Complete the secure registration form below. You can create an account, complete required forms, choose a payment plan, and reserve your student's spot all in one place.</p>
+      <p class="section-intro" style="margin-left:auto;margin-right:auto">Registration takes about ten minutes. Have your student's legal name exactly as it appears on their ID, their date of birth, and a card ready.</p>
     </div>
-    <div class="embed-frame reveal">
-      <!-- TODO: Replace JOHN_HORN_GROUP_ID below with the John Horn Regpack g_id once the John Horn registration project is created. The old value (100920292) was the Quince Orchard project and must NOT be used here. -->
-      <iframe
-        src="https://www.regpack.com/reg/templates/build/?g_id=JOHN_HORN_GROUP_ID"
-        title="John Horn NYC Trip Registration"
-        loading="lazy"
-        allow="payment">
-      </iframe>
+
+    <div class="reg-card reveal" style="max-width:720px;margin:0 auto;background:#fff;border-radius:16px;padding:32px 28px;text-align:center">
+      <ol style="text-align:left;max-width:520px;margin:0 auto 26px;padding-left:20px;line-height:1.7">
+        <li><strong>Create your account</strong> &mdash; an email and a password. Both parents can be added.</li>
+        <li><strong>Tell us about your traveler</strong> &mdash; name, date of birth, room choice, and the health and consent forms, which you can finish later.</li>
+        <li><strong>Pay the deposit</strong> &mdash; card, Apple&nbsp;Pay or Google&nbsp;Pay. Later payments collect themselves.</li>
+      </ol>
+
+      <p style="font-size:18px;margin:0 0 22px"><strong>Due today: a 10% deposit &mdash; from $197.50</strong></p>
+
+      <a class="btn btn-gold btn-lg" href="/register/?code=NBPEHM" style="display:inline-block">Start Registration &rarr;</a>
+
+      <p style="font-size:14px;color:#555;margin:22px 0 0">A place is not held until the deposit is paid, and places are taken in the order deposits arrive. Payments are handled by Stripe; impACT never sees your card number.</p>
+
+      <p style="font-size:14px;color:#555;margin:10px 0 0">Already started? <a href="/register/">Sign in to pick up where you left off</a>.<br>
+        Your group code is <b>NBPEHM</b> &mdash; you will need it if you register from a different link.</p>
     </div>
-    <p class="embed-fallback">Form not loading? Open the registration portal directly here:
-      <a href="https://www.regpack.com/reg/templates/build/?g_id=JOHN_HORN_GROUP_ID" target="_blank" rel="noopener">Open Registration &rarr;</a>
-    </p>
   </div>
 </section>
 
